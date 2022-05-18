@@ -35,8 +35,8 @@ fun CustomBottomNav(
 
         items.forEach{ item ->
             CustomBottomNavItem(item = item, isSelected = item.id == currentScreenId) {
-            
-        }
+                onItemSelected(item)
+            }
         }
 
     }
