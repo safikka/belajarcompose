@@ -4,10 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -20,12 +17,29 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun CustomBottomNav(
     currentScreenId:String,
     onItemSelected:(ScreenClass)->Unit
 ) {
+    val items = ScreenClass.Items.list
+    Row(
+        modifier = Modifier
+            .background(MaterialTheme.colors.background)
+            .padding(8.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
 
+        items.forEach{ item ->
+            CustomBottomNavItem(item = item, isSelected = item.id == currentScreenId) {
+            
+        }
+        }
+
+    }
 }
 
 @ExperimentalAnimationApi
