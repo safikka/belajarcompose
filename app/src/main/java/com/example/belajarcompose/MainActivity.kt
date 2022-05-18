@@ -12,43 +12,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.belajarcompose.components.CustomBottomNav
-import com.example.belajarcompose.components.ScreenClass
+import com.example.belajarcompose.navigation.MainScreen
 import com.example.belajarcompose.ui.theme.BelajarComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val currentScreen= mutableStateOf<ScreenClass>(ScreenClass.Home)
-            BelajarComposeTheme() {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Scaffold(
-                        bottomBar = {
-                            CustomBottomNav(currentScreenId = currentScreen.value.id){
-                                currentScreen.value=it
-                            }
-                        }
-                    ) {
-
-                    }
-                }
+            BelajarComposeTheme {
+                MainScreen()
             }
         }
     }
-}
-
-@Composable
-fun MainApp() {
-
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     BelajarComposeTheme {
+        MainScreen()
     }
 }
