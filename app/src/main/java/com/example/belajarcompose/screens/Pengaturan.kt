@@ -13,15 +13,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun HistoryScreen() {
+fun PengaturanScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Cyan),
+            .background(color = Color.Blue),
         contentAlignment = Alignment.Center
     ){
         Text(
-            text = "History",
+            text = "Pengaturan",
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
             color = Color.White
@@ -31,6 +31,6 @@ fun HistoryScreen() {
 
 @Preview
 @Composable
-fun Prev3() {
-    HistoryScreen()
+fun Prev2() {
+    PengaturanScreen()
 }

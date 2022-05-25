@@ -13,15 +13,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun HomeScreen() {
+fun RiwayatScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Magenta),
+            .background(color = Color.Cyan),
         contentAlignment = Alignment.Center
     ){
         Text(
-            text = "Home",
+            text = "Riwayat",
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
             color = Color.White
@@ -31,6 +31,6 @@ fun HomeScreen() {
 
 @Preview
 @Composable
-fun Prev1() {
-    HomeScreen()
+fun Prev3() {
+    RiwayatScreen()
 }

@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -14,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = {}
+        bottomBar = { BottomBar(navController = navController)}
     ) {
         BottomNavGraph(navController = navController)
     }
@@ -23,20 +24,15 @@ fun MainScreen() {
 @Composable
 fun BottomBar(navController: NavHostController) {
     val screens = listOf(
-        BottomBarScreen.Home,
-        BottomBarScreen.History,
-        BottomBarScreen.Setting,
+        BottomBarScreen.Beranda,
+        BottomBarScreen.Riwayat,
+        BottomBarScreen.Pengaturan
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
-
-    BottomNavigation() {
-        screens.forEach(){ screen ->
-            AddItem(
-                screen = screen,
-                currentDestination = currentDestination,
-                navController = navController
-            )
+    BottomNavigation {
+        screens.forEach{ screen ->
+            AddItem(screen = screen, currentDestination = currentDestination, navController = navController)
         }
     }
 }
@@ -49,21 +45,19 @@ fun RowScope.AddItem(
 ) {
     BottomNavigationItem(
         label = {
-            Text(text = screen.title)
+            Text(text = screen.tittle)
         },
         icon = {
-            Icon(
-                imageVector = screen.icon,
-                contentDescription = "Navigation Icon"
-            )
+            Icon(imageVector = screen.icon, contentDescription = "Navigation Icon")
         },
-        selected = currentDestination.hierarchy.any {
+        selected = currentDestination?.hierarchy?.any(){
             it.route == screen.route
-        },
+        } == true,
         onClick = {
-            navController.navigate(screen.route)
+            navController.navigate(screen.route){
+                popUpTo(navController.graph.findStartDestination().id)
+                launchSingleTop = true
+            }
         }
-    ) {
-        
-    }
+    )
 }

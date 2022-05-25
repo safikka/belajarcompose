@@ -65,4 +65,8 @@ dependencies {
 
     // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    // ConstrainLayout Compose
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02")
+    // SytemUIcontroller
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
 }
