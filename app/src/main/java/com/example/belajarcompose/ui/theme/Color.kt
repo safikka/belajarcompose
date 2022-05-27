@@ -8,4 +8,4 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
 val Delameta = Color(0xFFB40001)
-val WhiteBox = Color(0xFFF8F8F8)
+val WhiteBox = Color(0xFFF1F1F1)

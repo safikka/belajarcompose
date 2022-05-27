@@ -5,6 +5,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.filled.Receipt
 
 sealed class BottomBarScreen(
     val route:String,
@@ -14,12 +16,12 @@ sealed class BottomBarScreen(
     object Beranda:BottomBarScreen(
         route = "beranda",
         tittle = "Beranda",
-        icon = Icons.Default.Home
+        icon = Icons.Filled.Home
     )
     object Riwayat:BottomBarScreen(
         route = "riwayat",
         tittle = "Riwayat",
-        icon = Icons.Default.Search
+        icon = Icons.Default.Receipt
     )
     object Pengaturan:BottomBarScreen(
         route = "pengaturan",
